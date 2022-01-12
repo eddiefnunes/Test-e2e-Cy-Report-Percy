@@ -7,14 +7,16 @@
     "cypress": "^9.2.1"
   },
   "devDependencies": {
+    "cypress-dark": "^1.8.0",
     "eslint": "^8.6.0",
     "eslint-plugin-cypress": "^2.12.1"
   },
   "scripts": {
-    "cy:open":"npx cypress open",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "lint": "eslint cypress/**/*.js",
-    "lint:fix":"eslint cypress/**/*.js --fix"
+    "lint:fix": "eslint cypress/**/*.js --fix"
   },
-  "author": "Edmar Nunes",
+  "autor": "Edmar Nunes",
   "license": "MIT"
 }
