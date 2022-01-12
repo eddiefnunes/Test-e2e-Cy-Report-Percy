@@ -1,0 +1,20 @@
+{
+  "name": "cy_crud_finances",
+  "version": "1.0.0",
+  "description": "teste e 2 e com report percy CI",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^9.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0",
+    "eslint-plugin-cypress": "^2.12.1"
+  },
+  "scripts": {
+    "cy:open":"npx cypress open",
+    "lint": "eslint cypress/**/*.js",
+    "lint:fix":"eslint cypress/**/*.js --fix"
+  },
+  "author": "Edmar Nunes",
+  "license": "MIT"
+}
