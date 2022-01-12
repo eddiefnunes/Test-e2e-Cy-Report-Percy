@@ -1,4 +1,5 @@
 {
     "theme": "dark",
-    "baseUrl":"https://maratona-discover-devfinance.netlify.app/"
+    "baseUrl":"https://maratona-discover-devfinance.netlify.app/",
+    "experimentalStudio": true
 }
