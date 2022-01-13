@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "teste e 2 e com report percy CI",
   "main": "index.js",
-  "dependencies": {
-    "cypress": "^9.2.1"
-  },
   "devDependencies": {
+    "@percy/cli": "^1.0.0-beta.72",
+    "@percy/cypress": "^3.1.1",
+    "cypress": "^9.2.1",
     "cypress-dark": "^1.8.0",
     "eslint": "^8.6.0",
     "eslint-plugin-cypress": "^2.12.1"
@@ -15,7 +15,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "lint": "eslint cypress/**/*.js",
-    "lint:fix": "eslint cypress/**/*.js --fix"
+    "lint:fix": "eslint cypress/**/*.js --fix",    
+    "cy:percy": "percy exec -- cypress run"
   },
   "autor": "Edmar Nunes",
   "license": "MIT"

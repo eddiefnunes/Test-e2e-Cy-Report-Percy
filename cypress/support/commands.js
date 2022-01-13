@@ -1,3 +1,4 @@
+import '@percy/cypress'
 const el = require('./elementos').ELEMENTS
 
 // C
@@ -7,6 +8,7 @@ Cypress.Commands.add('criarTransacao', (desc,valor,data,op) => {
   cy.get(el.txtDesc).clear().type(desc)
   cy.get(el.txtValor).clear().type(valor)
   cy.get(el.data).type(data)
+  cy.percySnapshot()
   if(op)
   {
     cy.get('button').contains('Salvar').click()
@@ -23,9 +25,10 @@ Cypress.Commands.add('editar', (entrada,entradaEdit,valor) => {
   cy.contains(entrada).parent().find(el.btnEditar).click()
   cy.get(el.txtDesc).clear().type(entradaEdit)
   cy.get(el.txtValor).clear().type(valor)
+  cy.percySnapshot()
   cy.get('a').contains('Cancelar').should('be.visible')
   cy.get('button').contains('Salvar').click()
-  
+
 
 })
 
