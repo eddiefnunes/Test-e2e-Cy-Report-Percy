@@ -1,79 +1,60 @@
 
 /// <reference types="Cypress" />
+
+const entrada = 'Salario'
+const entradaEdi = 'Salario editado'
+const saida = 'Gasolina'
+const saidaEdi = 'Gasolina Editado'
 describe('devfinance.spec', () => {
 
   context('Tela Inicial', () => {
 
-    //ID: TC001
-    it(' TC001 -Valida Pagina inicial', () => {
-      cy.visit('/')
+    
+    it('TC001 -Valida Pagina inicial', () => {
+      cy.visit('https://maratona-discover-devfinance.netlify.app/')
       //percy
     })
 
-    //ID: TC002
+    
     it('TC002 - Trocando a cor de fundo para escuro ', () => {
-
-
-      cy.get('.theme-switch-circle').click()
-
+      cy.trocarCor()
+      //percy
     })
 
-    //ID: TC003
-    it('TC002 -Trocando a cor de fundo para claro', () => {
-      cy.get('.theme-switch-circle').click()
-
+    
+    it('TC003 -Trocando a cor de fundo para claro', () => {
+      cy.trocarCor()
+      //percy
     })
   })
 
   context('Transação', () => {
 
     context('Inserção de dados', () => {
-      it('TC004 -Nova transação com valor positivo – botão cancelar', () => {
+      it('TC004 -Nova transação com valor positivo – cancelar', () => {
 
-        cy.visit('https://maratona-discover-devfinance.netlify.app//')
-        cy.get('#transactions > .button').click()
-        cy.get('#description').clear()
-        cy.get('#description').type('Salario')
-        cy.get('#amount').clear()
-        cy.get('#amount').type('100')
-        cy.get('#date').type('2022-01-10')
-        cy.get('a').contains('Cancelar').click()
+        cy.criarTransacao(entrada,'100','2022-01-10',false)
+
 
       })
-      it('TC005 -Nova transação com valor positivo gravar', () => {
+      it('TC005 -Nova transação com valor positivo - gravar', () => {
 
-        cy.get('#transactions > .button').click()
-        cy.get('#description').clear()
-        cy.get('#description').type('Salario')
-        cy.get('#amount').clear()
-        cy.get('#amount').type('100')
-        cy.get('#date').type('2022-01-10')
-        cy.get('button').contains('Salvar').click()
+        cy.criarTransacao(entrada,'100','2022-01-10',true)
+
       })
       it('TC006 -Transação inseridas Tela com valor positivo', () => {
 
       })
-      it('TC007 -Nova transação com valor negativo – botão cancelar', () => {
+      it('TC007 -Nova transação com valor negativo – cancelar', () => {
 
-        // cy.visit('https://maratona-discover-devfinance.netlify.app//');
-        cy.get('#transactions > .button').click()
-        cy.get('#description').clear()
-        cy.get('#description').type('Gasolina')
-        cy.get('#amount').clear()
-        cy.get('#amount').type('-60')
-        cy.get('#date').type('2022-01-10')
-        cy.get('a').contains('Cancelar').click()
+        cy.criarTransacao(saida,'-60','2022-01-10',false)
+
 
       })
-      it('TC005 -Nova transação com valor negativo gravar', () => {
+      it('TC005 -Nova transação com valor negativo - gravar', () => {
 
-        cy.get('#transactions > .button').click()
-        cy.get('#description').clear()
-        cy.get('#description').type('Salario')
-        cy.get('#amount').clear()
-        cy.get('#amount').type('-60')
-        cy.get('#date').type('2022-01-10')
-        cy.get('button').contains('Salvar').click()
+        cy.criarTransacao(saida,'-60','2022-01-10',true)
+
 
       })
       it('TC006 -Transação inseridas Tela com valor negativo', () => {
@@ -82,10 +63,28 @@ describe('devfinance.spec', () => {
     })
 
     context('Edição de dados', () => {
+      it('TC007 -Editar transação com valor positivo -gravar', () => {
+
+        cy.editar(entrada,entradaEdi,'200',)
+
+      })
+
+      it('TC008 -Editar transação com valor negativo -gravar', () => {
+
+        cy.editar(saida,saidaEdi,'-80',)
+
+      })
 
     })
 
     context('Exclusão de dados', () => {
+      it('Removendo  transação com valor positivo', () => {
+        cy.remover(entradaEdi)
+      });
+      it('Removendo  transação com valor negativo', () => {
+        cy.remover(saidaEdi)
+      });
+
 
     })
 

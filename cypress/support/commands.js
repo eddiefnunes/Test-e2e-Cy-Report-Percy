@@ -1,25 +1,43 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const el = require('./elementos').ELEMENTS
+
+// C
+Cypress.Commands.add('criarTransacao', (desc,valor,data,op) => {
+
+  cy.get(el.btnNovTransacao).click()
+  cy.get(el.txtDesc).clear().type(desc)
+  cy.get(el.txtValor).clear().type(valor)
+  cy.get(el.data).type(data)
+  if(op)
+  {
+    cy.get('button').contains('Salvar').click()
+
+  } else cy.get('a').contains('Cancelar').click()
+
+
+})
+
+
+// E
+Cypress.Commands.add('editar', (entrada,entradaEdit,valor) => {
+
+  cy.contains(entrada).parent().find(el.btnEditar).click()
+  cy.get(el.txtDesc).clear().type(entradaEdit)
+  cy.get(el.txtValor).clear().type(valor)
+  cy.get('a').contains('Cancelar').should('be.visible')
+  cy.get('button').contains('Salvar').click()
+  
+
+})
+
+// R
+Cypress.Commands.add('remover', (descs) => {
+
+  cy.contains(descs).parent().find(el.btnRemover).click()
+})
+
+// T
+Cypress.Commands.add('trocarCor', () => {
+  cy.get(el.interuptor).click() })
+
+
+
