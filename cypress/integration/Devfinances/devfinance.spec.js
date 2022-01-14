@@ -10,7 +10,7 @@ describe('devfinance.spec', () => {
   context('Tela Inicial', () => {
 
 
-    it('TC001 -Valida Pagina inicial', () => {
+    it('TC001 -Valida Página inicial', () => {
       cy.visit('https://maratona-discover-devfinance.netlify.app/')
       cy.percySnapshot()
     })
