@@ -13,7 +13,7 @@
   },
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "test": "cypress run --record --tag 'e2e'",
     "lint": "eslint cypress/**/*.js",
     "lint:fix": "eslint cypress/**/*.js --fix",    
     "cy:percy": "percy exec -- cypress run"
