@@ -24,5 +24,4 @@ jobs:
 
       - name: Run end-to-end tests 
         uses: cypress-io/github-action@v2
-        run:  cy:run
- 
+        run:  cypress run
