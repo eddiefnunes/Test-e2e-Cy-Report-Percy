@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Install
-        run: yarn
+        run: yarn --ignore-engines
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
       - name: Run end-to-end tests 
