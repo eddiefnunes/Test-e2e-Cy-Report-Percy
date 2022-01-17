@@ -16,7 +16,7 @@
     "test": "cypress run --record --tag 'e2e'",
     "lint": "eslint cypress/**/*.js",
     "lint:fix": "eslint cypress/**/*.js --fix",    
-    "cypercy": "npx percy exec -- cypress run"
+    "cypercy": "percy exec -- cypress run"
   },
   "autor": "Edmar Nunes",
   "license": "MIT"
