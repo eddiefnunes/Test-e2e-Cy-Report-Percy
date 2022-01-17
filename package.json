@@ -4,12 +4,13 @@
   "description": "teste e 2 e com report percy CI",
   "main": "index.js",
   "devDependencies": {
-    "@percy/cli": "^1.0.0-beta.72",
+    "@percy/cli": "^1.0.0-beta.73",
     "@percy/cypress": "^3.1.1",
     "cypress": "^9.2.1",
-    "cypress-dark": "^1.8.0",
+    "cypress-dark": "^1.8.3",
     "eslint": "^8.7.0",
-    "eslint-plugin-cypress": "^2.12.1"
+    "eslint-plugin-cypress": "^2.12.1",
+    "percy": "^0.28.7"
   },
   "scripts": {
     "cy:open": "cypress open",
@@ -19,8 +20,5 @@
     "cypercy": "percy exec -- cypress run"
   },
   "author": "Edmar Nunes",
-  "license": "MIT",
-  "dependencies": {
-    "node": "^17.3.1"
-  }
+  "license": "MIT"
 }

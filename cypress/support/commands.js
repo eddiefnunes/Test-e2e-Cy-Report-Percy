@@ -1,4 +1,4 @@
-import '@percy/cypress'
+
 const el = require('./elementos').ELEMENTS
 
 // C

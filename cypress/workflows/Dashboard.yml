@@ -1,6 +1,12 @@
+ 
 name: CI -Cypress+Dashboard
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
 jobs:
   eslint:
     runs-on: ubuntu-latest
@@ -10,7 +16,7 @@ jobs:
       run: npm install
     - name: Run ESLint
       run: npm run lint
-  cypress-tests:
+  cypress-tests-desktop:
     needs: eslint
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
@@ -18,10 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run end-to-end tests 
+      - name: Run end-to-end tests
         uses: cypress-io/github-action@v2
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}          
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         with:
           command: npm test
- 
