@@ -11,10 +11,14 @@ jobs:
         run: yarn --ignore-engines
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
+        with:
+          command: "cypress run"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
       - name: Run end-to-end tests 
         uses: cypress-io/github-action@v2
         with:
-          command: "percy exec -- cypress run --record --tag 'e2e'"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          command: "cypress run --record --tag 'e2e'"
+        env:        
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
