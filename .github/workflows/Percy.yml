@@ -21,9 +21,9 @@ jobs:
         run: yarn
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
-		uses: cypress-io/github-action@v2
+		    uses: cypress-io/github-action@v2
         with:
           command: "cypress run --record"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-		  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+		      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
