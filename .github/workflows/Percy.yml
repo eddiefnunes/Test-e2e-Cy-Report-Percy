@@ -1,4 +1,4 @@
-name: CI
+name: CI - Cypress+Percy
 on: [push, pull_request]
 jobs:
   Regre-Percy:

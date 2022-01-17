@@ -1,4 +1,4 @@
-name: ci
+name: CI -Cypress+Dashboard
 
 on: [push, pull_request]
 jobs:
