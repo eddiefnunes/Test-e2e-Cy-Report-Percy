@@ -15,9 +15,12 @@
     "cy:open": "cypress open",
     "test": "cypress run --record --tag 'e2e'",
     "lint": "eslint cypress/**/*.js",
-    "lint:fix": "eslint cypress/**/*.js --fix",    
+    "lint:fix": "eslint cypress/**/*.js --fix",
     "cypercy": "percy exec -- cypress run"
   },
   "author": "Edmar Nunes",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node": "^17.3.1"
+  }
 }
