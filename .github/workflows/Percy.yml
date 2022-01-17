@@ -1,8 +1,19 @@
 name: CI
+
 on: [push, pull_request]
 jobs:
-  build:
+  eslint:
     runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install
+    - name: Run ESLint
+      run: npm run lint
+   cypress-Percy-Dashboard
+	needs: eslint
+    runs-on: ubuntu-latest
+	container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -10,7 +21,9 @@ jobs:
         run: yarn
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
+		uses: cypress-io/github-action@v2
         with:
-          command: "cypress run"
+          command: "cypress run --record"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+		  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
