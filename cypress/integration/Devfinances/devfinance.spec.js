@@ -20,7 +20,7 @@ describe('devfinance.spec', () => {
     it('TC002 - Trocando a cor de fundo para escuro ', () => {
       cy.trocarCor()
       cy.percySnapshot()
-      
+
     })
 
 
