@@ -1,6 +1,5 @@
  
 name: CI -Cypress+Dashboard
-
 on:
   push:
     branches:
