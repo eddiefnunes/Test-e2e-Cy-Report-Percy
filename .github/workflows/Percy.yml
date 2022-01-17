@@ -31,4 +31,8 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         with:
+<<<<<<< HEAD
           command: npx cypercy
+=======
+          command: npx cy:percy
+>>>>>>> 9af1461ab7ebfdee5674283df074b805dadb66f6
