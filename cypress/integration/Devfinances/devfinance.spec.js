@@ -1,5 +1,6 @@
 
 /// <reference types="Cypress" />
+//
 
 const entrada = 'Salario'
 const entradaEdi = 'Salario editado'
