@@ -1,9 +1,8 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  build:
+  Regre-Percy:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -15,10 +14,3 @@ jobs:
           command: "cypress run"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-
-      - name: Run end-to-end tests 
-        uses: cypress-io/github-action@v2
-        with:
-          command: "cypress run --record --tag 'e2e'"
-        env:        
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
