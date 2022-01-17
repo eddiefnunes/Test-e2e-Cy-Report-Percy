@@ -7,10 +7,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
       - name: Install
-        run: yarn --ignore-engines
+        run: npm install
       - name: Percy Test
         uses: percy/exec-action@v0.3.1
         with:
-          command: "percy exec -- cypress run"
+          command: "cypress run"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
