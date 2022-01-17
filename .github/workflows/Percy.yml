@@ -1,34 +1,16 @@
-# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: PercyCI
-
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+name: CI
+on: [push, pull_request]
 jobs:
-  eslint:
+  build:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install modules
-      run: npm install
-    - name: Run ESLint
-      run: npm run lint
-  cypress-tests-2e2-percy:
-    needs: eslint
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Run end-to-end tests PERCY
-        uses: cypress-io/github-action@v2
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        uses: actions/checkout@master
+      - name: Install
+        run: yarn
+      - name: Percy Test
+        uses: percy/exec-action@v0.3.1
         with:
-          command: percy exec -- cypress run
+          command: "cypress run"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
