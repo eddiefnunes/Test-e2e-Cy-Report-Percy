@@ -17,7 +17,7 @@ jobs:
       run: npm install
     - name: Run ESLint
       run: npm run lint
-  cypress-tests-desktop:
+  cypress-tests-2e2-percy:
     needs: eslint
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
@@ -31,4 +31,4 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         with:
-          command: cy:percy
+          command: npm cy:percy
