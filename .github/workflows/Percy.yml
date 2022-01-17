@@ -1,0 +1,16 @@
+name: CI - Cypress+Percy
+on: [push, pull_request]
+jobs:
+  Regre-Percy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install
+        run: yarn --ignore-engines
+      - name: Percy Test
+        uses: percy/exec-action@v0.3.1
+        with:
+          command: "cypress run"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
