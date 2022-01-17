@@ -18,6 +18,6 @@
     "lint:fix": "eslint cypress/**/*.js --fix",    
     "cypercy": "percy exec -- cypress run"
   },
-  "autor": "Edmar Nunes",
+  "author": "Edmar Nunes",
   "license": "MIT"
 }
